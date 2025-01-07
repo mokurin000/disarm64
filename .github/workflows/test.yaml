@@ -44,13 +44,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set Profiling flags
-        shell: bash
-        run: |
-          mkdir -p .cargo
-          echo "[build]" > .cargo/config.toml
-          echo 'rustflags = "-Z self-profile"' >> .cargo/config.toml
-
       - name: Build binary
         uses: houseabsolute/actions-rust-cross@v0
         with:
